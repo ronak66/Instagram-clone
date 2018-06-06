@@ -15,3 +15,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body{
+	background-color: rgb(220,220,220);
+}
+.white{
+	border: 15px solid white;
+	border-spacing: 0px;
+}
