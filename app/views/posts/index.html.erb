@@ -6,6 +6,6 @@
 		<%= image_tag x.image.url(:medium) %>
 		<br>
 		<%= x.description %>
-		
+		<%= link_to "Delete", '/posts/' + x.id.to_s, method: :delete %>
 	</div>
-<% end %> 
+<% end %>

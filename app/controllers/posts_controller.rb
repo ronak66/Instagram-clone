@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def new
   	@post = Post.new
-  end
+  end	
 
-  
   def index
   	@post = Post.all
+
   end
 
   def show
@@ -21,6 +21,13 @@ class PostsController < ApplicationController
   		flash[:error] = @post.error.full_messages
   		redirect_to new_post_path
   	end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.delete
+    flash[:success] = "Deleted course"
+    redirect_to root_path
   end
 
 
