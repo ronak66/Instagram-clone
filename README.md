@@ -13,10 +13,7 @@ If you wish to try it, here are some guide lines.
 2. Run **$ rails db:migrate** to set up the data base
 3. Run **$ bin/rails server**
 
-This will initialize a localhost server where the program will be up and running.  
-And you can enjoy a light version of Instagram created by me :P  
-
-#### Enjoy !!
+This will initialize a localhost server where the program will be up and running.
 
 
 
