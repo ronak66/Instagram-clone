@@ -10956,3 +10956,969 @@ Processing by PostsController#index as HTML
   [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
   Rendered posts/index.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 61ms (Views: 60.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:30:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 278ms (Views: 268.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 13:31:01 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (4.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/sessions/new.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 162ms (Views: 127.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-07 13:31:03 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (2.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 136ms (Views: 133.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 13:31:22 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 114ms (Views: 112.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 13:31:30 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0mC+Wn490Gd/9obk3RZubAFmOP5lPVs22/P8d5WO/223p3ZH+xtfFa5922Fxdt6Y003mTYiFnNav0vpH2Hz9fg==", "user"=>{"email"=>"abc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "abc@gmail.com"]]
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2018-06-07 04:36:17.774093"], ["current_sign_in_at", "2018-06-07 08:01:30.487648"], ["sign_in_count", 19], ["updated_at", "2018-06-07 08:01:30.491169"], ["id", 1]]
+  [1m[35m (66.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 238ms (ActiveRecord: 67.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:31:30 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 56ms (Views: 54.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-07 13:31:35 +0530
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (9.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 83ms (Views: 81.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-07 13:31:48 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gTxlg7R+j2sj9sfrpl6ZElJCaPGNPAlmp3MPrR5bXURL1dU/xXLxbCaRHbGc6f0U5XfyXuQA8JdS/M/ZXy/pJw==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x000055811a12c870 @tempfile=#<Tempfile:/tmp/RackMultipart20180607-8911-u86021.png>, @original_filename="12.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"12.png\"\r\nContent-Type: image/png\r\n">, "description"=>"nhjnjn knm knmn k"}, "commit"=>"Choose Photo"}
+[paperclip] Trying to link /tmp/RackMultipart20180607-8911-u86021.png to /tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png
+[paperclip] Trying to link /tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png to /tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-h12dcw.png
+Command :: file -b --mime '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-h12dcw.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]'
+Command :: convert '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]' -auto-orient -resize "500x500>" '/tmp/5da3e8f5cc6051404a791f5606816e1620180607-8911-1e1f5vi'
+[paperclip] Trying to link /tmp/5da3e8f5cc6051404a791f5606816e1620180607-8911-1e1f5vi to /tmp/c0e69aba78486af312f2fb094530d3f720180607-8911-1t3zu92
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]'
+Command :: convert '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png[0]' -auto-orient -resize "100x100>" '/tmp/5da3e8f5cc6051404a791f5606816e1620180607-8911-cfowbm'
+[paperclip] Trying to link /tmp/5da3e8f5cc6051404a791f5606816e1620180607-8911-cfowbm to /tmp/eb07071901b3f94aca335054bc0bdacd20180607-8911-i8rhrx
+  [1m[35m (0.2ms)[0m  begin transaction
+[paperclip] Trying to link /tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1kciiiq.png to /tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1o4rpcl.png
+Command :: file -b --mime '/tmp/c20ad4d76fe97759aa27a0c99bff671020180607-8911-1o4rpcl.png'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("image_file_name", "image_content_type", "image_file_size", "image_updated_at", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["image_file_name", "12.png"], ["image_content_type", "image/png"], ["image_file_size", 721352], ["image_updated_at", "2018-06-07 08:01:48.422427"], ["description", "nhjnjn knm knmn k"], ["created_at", "2018-06-07 08:01:48.920951"], ["updated_at", "2018-06-07 08:01:48.920951"]]
+  [1m[35m (58.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/33
+Completed 302 Found in 586ms (ActiveRecord: 58.6ms)
+
+
+Started GET "/posts/33" for 127.0.0.1 at 2018-06-07 13:31:49 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"33"}
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 33]]
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 81ms (Views: 62.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:31:53 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (3.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 72ms (Views: 70.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:31:59 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 130ms (Views: 125.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-07 13:32:00 +0530
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 148ms (Views: 146.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:03 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (15.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 104ms (Views: 100.8ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-07 13:32:12 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FLzWqaCl5WcpBsap39aBaJcYBQIJpP6Vvo/ikgBNJ4jeVWYV0ambYCxhHPPlYeVuIC2frWCYB2RLACLmQTmT6w=="}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:12 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:16 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 87ms (Views: 86.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/posts/31" for 127.0.0.1 at 2018-06-07 13:32:19 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"c8vu5Z14XJi2QRsza4U4w8pcxOx9GQI2Pir5oI8Pnhg87SSUYkv4d7bpaRZiIxk/iNkIKuOLDxMJzL7OR1wFMw==", "id"=>"31"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 31]]
+  [1m[35mSQL (109.8ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 31]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 115ms (ActiveRecord: 109.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:19 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 75ms (Views: 72.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:23 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 115ms (Views: 111.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 13:32:35 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 93ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 13:32:40 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EmThI/JDe/kX/AMCksOG7A7fX9aSOVd5U0Djvjlo9l5dQitSDXDfFhdUcSebZacQTFqTEAyrWlxkpqTQ8TttdQ==", "user"=>{"email"=>"abc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "abc@gmail.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2018-06-07 08:01:30.487648"], ["current_sign_in_at", "2018-06-07 08:02:40.824676"], ["sign_in_count", 20], ["updated_at", "2018-06-07 08:02:40.826340"], ["id", 1]]
+  [1m[35m (56.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 211ms (ActiveRecord: 57.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:32:40 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 53ms (Views: 52.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-07 13:32:43 +0530
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 93ms (Views: 90.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-07 13:33:00 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ko3pSd1lD+HhZGyD3PZUVOfFpqPr/11gi6y/PUeZjIkk6FqYwh1SKkAgtleSullm0oq1SiuTnrwkqNZKaMfKVQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007f241108e620 @tempfile=#<Tempfile:/tmp/RackMultipart20180607-8911-4gb3fe.jpg>, @original_filename="Snowy Mountains.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"Snowy Mountains.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"m m"}, "commit"=>"Choose Photo"}
+[paperclip] Trying to link /tmp/RackMultipart20180607-8911-4gb3fe.jpg to /tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg
+[paperclip] Trying to link /tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg to /tmp/265f0a1fa495b8d146261a2867ce72aa20180607-8911-1iw96b4.jpg
+Command :: file -b --mime '/tmp/265f0a1fa495b8d146261a2867ce72aa20180607-8911-1iw96b4.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]'
+Command :: convert '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]' -auto-orient -resize "500x500>" '/tmp/45a941dcdd2d2e9b6ae6afc13bf1168020180607-8911-10bbdfe'
+[paperclip] Trying to link /tmp/45a941dcdd2d2e9b6ae6afc13bf1168020180607-8911-10bbdfe to /tmp/81c7cb5d0a04ad476729b03102a3564f20180607-8911-14pb9zp
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]'
+Command :: convert '/tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg[0]' -auto-orient -resize "100x100>" '/tmp/45a941dcdd2d2e9b6ae6afc13bf1168020180607-8911-1vny3rx'
+[paperclip] Trying to link /tmp/45a941dcdd2d2e9b6ae6afc13bf1168020180607-8911-1vny3rx to /tmp/a41e236927a232876dd99f54172f39a520180607-8911-1wg4q3j
+  [1m[35m (0.1ms)[0m  begin transaction
+[paperclip] Trying to link /tmp/b27864d02a189b93add6b415cb4ef42720180607-8911-w3jv9y.jpg to /tmp/265f0a1fa495b8d146261a2867ce72aa20180607-8911-1jo5uhu.jpg
+Command :: file -b --mime '/tmp/265f0a1fa495b8d146261a2867ce72aa20180607-8911-1jo5uhu.jpg'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("image_file_name", "image_content_type", "image_file_size", "image_updated_at", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["image_file_name", "Snowy_Mountains.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 122313], ["image_updated_at", "2018-06-07 08:03:00.554195"], ["description", "m m"], ["created_at", "2018-06-07 08:03:00.991417"], ["updated_at", "2018-06-07 08:03:00.991417"]]
+  [1m[35m (82.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/34
+Completed 302 Found in 551ms (ActiveRecord: 82.3ms)
+
+
+Started GET "/posts/34" for 127.0.0.1 at 2018-06-07 13:33:01 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 34]]
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 78ms (Views: 74.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:33:05 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 71ms (Views: 69.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/posts/33" for 127.0.0.1 at 2018-06-07 13:33:19 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ti2frTxLK19TsAMF7dPLow2dP1ozX8CdGMQRuP6MeR1ASCx8IzN2lPL02dGjn8aRONIss/MzA0G3wHjP0dI/wQ==", "id"=>"33"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 33]]
+  [1m[35mSQL (118.4ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 33]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 122ms (ActiveRecord: 118.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:33:19 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 66ms (Views: 65.2ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/posts/32" for 127.0.0.1 at 2018-06-07 13:33:22 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7+oWp12l67HG/bAzJsaMuU09qI5IwSR0mMlVIdHMIQnhj6V2Qt22eme5audoioGLeHK7Z4it56g3zTxW/pJn1Q==", "id"=>"32"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 32]]
+  [1m[35mSQL (113.9ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 32]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms (ActiveRecord: 114.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:33:22 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (4.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 86ms (Views: 82.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:33:25 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 84ms (Views: 82.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2018-06-07 13:33:37 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QF0hdRxa1N5QqE94vGTVlBrYpyVXXxK0oNJmLHU/Fa5OOJKkAyKJFfHslazyKNimL5e0zJcz0WgP1g9bWmFTcg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 14ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:33:37 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 18:57:12 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 373ms (Views: 356.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 18:57:16 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/sessions/new.html.erb within layouts/application (67.5ms)
+Completed 200 OK in 157ms (Views: 138.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 18:57:18 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"65PR1hZ7divqhhIwn+2lYXszM6Ml5GLXxJkVSXYfSOJi6DoWgX33ZCkIlegKuttr5FpYDGkcvi9uoMY77R2DgA==", "user"=>{"email"=>"abc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "abc@gmail.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2018-06-07 08:02:40.824676"], ["current_sign_in_at", "2018-06-07 13:27:19.150411"], ["sign_in_count", 21], ["updated_at", "2018-06-07 13:27:19.152202"], ["id", 1]]
+  [1m[35m (56.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 252ms (ActiveRecord: 57.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 18:57:19 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 83ms (Views: 80.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-07 18:57:20 +0530
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (12.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 93ms (Views: 92.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-07 18:57:29 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ff3Zr3Eam9Guuy2da2GuM2Gu+4nTcjbcwJHYvhoOFQkPFYKjpgBNDvxtR/zS1TVcAyrfrUmxwc1WWQXQygNygA==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007f574ddd9d60 @tempfile=#<Tempfile:/tmp/RackMultipart20180607-18731-1jm5x1c.jpg>, @original_filename="16473411_1465546423480342_4772082376535027044_n.png.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"16473411_1465546423480342_4772082376535027044_n.png.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"terrible"}, "commit"=>"Choose Photo"}
+[paperclip] Trying to link /tmp/RackMultipart20180607-18731-1jm5x1c.jpg to /tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg
+[paperclip] Trying to link /tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg to /tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-1v06d29.jpg
+Command :: file -b --mime '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-1v06d29.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]'
+Command :: convert '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]' -auto-orient -resize "500x500>" '/tmp/65276c146557d2179edb5caaef91bc8d20180607-18731-cbpwsv'
+[paperclip] Trying to link /tmp/65276c146557d2179edb5caaef91bc8d20180607-18731-cbpwsv to /tmp/2840fec6d1e47416a4ffff043f7eab5220180607-18731-tiq0o0
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]'
+Command :: convert '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg[0]' -auto-orient -resize "100x100>" '/tmp/65276c146557d2179edb5caaef91bc8d20180607-18731-136ulv0'
+[paperclip] Trying to link /tmp/65276c146557d2179edb5caaef91bc8d20180607-18731-136ulv0 to /tmp/5a4bc23d30d3afe278fdceffbb9ce08420180607-18731-92exqq
+  [1m[35m (0.1ms)[0m  begin transaction
+[paperclip] Trying to link /tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-3q1bui.jpg to /tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-dyoqk6.jpg
+Command :: file -b --mime '/tmp/d4c3300822060712730f5ef4b1d75cd620180607-18731-dyoqk6.jpg'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("image_file_name", "image_content_type", "image_file_size", "image_updated_at", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["image_file_name", "16473411_1465546423480342_4772082376535027044_n.png.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 15176], ["image_updated_at", "2018-06-07 13:27:29.857637"], ["description", "terrible"], ["created_at", "2018-06-07 13:27:30.243432"], ["updated_at", "2018-06-07 13:27:30.243432"]]
+  [1m[35m (58.4ms)[0m  commit transaction
+Completed 500 Internal Server Error in 461ms (ActiveRecord: 58.8ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts"} missing required keys: [:id]):
+  app/controllers/posts_controller.rb:19:in `create'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.8ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2018-06-07 18:57:47 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (5.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 60ms (Views: 56.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 18:57:53 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 115ms (Views: 113.9ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/posts/34" for 127.0.0.1 at 2018-06-07 18:57:57 +0530
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"W+R/dwWSUopWRpAMYwAjACXTXl61jHNKUSArG4z9XP5BDCR70oiEVQSQ+m3atLhvR1d6ei9PhFvH6PZ1XPA7dw==", "id"=>"34"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 34]]
+  [1m[35mSQL (95.9ms)[0m  DELETE FROM "posts" WHERE "posts"."id" = ?  [["id", 34]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 103ms (ActiveRecord: 96.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 18:57:58 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (2.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 70ms (Views: 67.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mPost Load (5.3ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/courses/4/lectures" for 127.0.0.1 at 2018-06-24 19:49:45 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/courses/4/lectures"):
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:38:in `call_app'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `block in call'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `block in tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:26:in `tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `tagged'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/engine.rb:518:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_table.html.erb (10.6ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (11.2ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (52.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (153.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (225.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-24 19:49:51 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 1004ms (Views: 994.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.self-34212a4a3519513462c4a5dbeb80b80a688ee1095749364846c04ac4668b0f23.css?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-06-24 19:49:53 +0530
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-24 19:49:55 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.4.3/app/views/devise/sessions/new.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 116ms (Views: 97.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-24 19:50:00 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aOPMfPwOWUlQqhf1r2rODFtcQiG9v7m0arRJas7rjVr/tniKKQdbSoosnGDiIdK1ABwpbPtHPRvQA9U0pgkaAQ==", "user"=>{"email"=>"abc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "abc@gmail.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2018-06-07 13:27:19.150411"], ["current_sign_in_at", "2018-06-24 14:20:00.422152"], ["sign_in_count", 22], ["updated_at", "2018-06-24 14:20:00.424318"], ["id", 1]]
+  [1m[35m (55.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 421ms (ActiveRecord: 57.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-24 19:50:00 +0530
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 73ms (Views: 71.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2018-06-24 19:50:44 +0530
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 75ms (Views: 73.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-24 19:50:56 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1vshgurFKqeSX99zUTDFxl4RQFEKq8qiT2JnAZV60W86H5e42exHDN5Idq9lM43cxk1YPABBaHglVa//duvexQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007f3ed9fcf9f8 @tempfile=#<Tempfile:/tmp/RackMultipart20180624-31248-3kg3hz.jpg>, @original_filename="maths.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"maths.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"I love maths\r\n"}, "commit"=>"Choose Photo"}
+[paperclip] Trying to link /tmp/RackMultipart20180624-31248-3kg3hz.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg
+[paperclip] Trying to link /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1vpmlrz.jpg
+Command :: file -b --mime '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1vpmlrz.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]'
+Command :: convert '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]' -auto-orient -resize "500x500>" '/tmp/ef9ad2e76a8bb307f21f5d62a9a21a3f20180624-31248-1bllej7'
+[paperclip] Trying to link /tmp/ef9ad2e76a8bb307f21f5d62a9a21a3f20180624-31248-1bllej7 to /tmp/25b6a4572e5d2cc938d2eacc4212d27b20180624-31248-16twpik
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]'
+Command :: convert '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg[0]' -auto-orient -resize "100x100>" '/tmp/ef9ad2e76a8bb307f21f5d62a9a21a3f20180624-31248-9qd4ul'
+[paperclip] Trying to link /tmp/ef9ad2e76a8bb307f21f5d62a9a21a3f20180624-31248-9qd4ul to /tmp/8edba737a210de677815310a2043c56520180624-31248-1h70l6d
+  [1m[35m (0.1ms)[0m  begin transaction
+[paperclip] Trying to link /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1pqlgze.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-7obytq.jpg
+Command :: file -b --mime '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-7obytq.jpg'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("image_file_name", "image_content_type", "image_file_size", "image_updated_at", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["image_file_name", "maths.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 31605], ["image_updated_at", "2018-06-24 14:20:56.771162"], ["description", "I love maths\r\n"], ["created_at", "2018-06-24 14:20:57.675048"], ["updated_at", "2018-06-24 14:20:57.675048"]]
+  [1m[35m (67.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/36
+Completed 302 Found in 1003ms (ActiveRecord: 68.2ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2018-06-24 19:50:57 +0530
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1vshgurFKqeSX99zUTDFxl4RQFEKq8qiT2JnAZV60W86H5e42exHDN5Idq9lM43cxk1YPABBaHglVa//duvexQ==", "post"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00007f3ed9ab9590 @tempfile=#<Tempfile:/tmp/RackMultipart20180624-31248-1s2oxt8.jpg>, @original_filename="maths.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"maths.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description"=>"I love maths\r\n"}, "commit"=>"Choose Photo"}
+[paperclip] Trying to link /tmp/RackMultipart20180624-31248-1s2oxt8.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg
+[paperclip] Trying to link /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-cfho7m.jpg
+Command :: file -b --mime '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-cfho7m.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]'
+Command :: convert '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]' -auto-orient -resize "500x500>" '/tmp/ccb52309a7a961919402630a49ef67a520180624-31248-188i6wy'
+[paperclip] Trying to link /tmp/ccb52309a7a961919402630a49ef67a520180624-31248-188i6wy to /tmp/d2a75dc2cbefcff268368fc7850e3ea720180624-31248-1tdtovg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]'
+Command :: convert '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg[0]' -auto-orient -resize "100x100>" '/tmp/ccb52309a7a961919402630a49ef67a520180624-31248-13aimv9'
+[paperclip] Trying to link /tmp/ccb52309a7a961919402630a49ef67a520180624-31248-13aimv9 to /tmp/58692f1618cd35eac33cb07d9f99928220180624-31248-t0yupy
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[paperclip] Trying to link /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-1ime08y.jpg to /tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-115xag8.jpg
+Command :: file -b --mime '/tmp/d939e7a6b17e374c1e3db59b4df2ae9720180624-31248-115xag8.jpg'
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "posts" ("image_file_name", "image_content_type", "image_file_size", "image_updated_at", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["image_file_name", "maths.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 31605], ["image_updated_at", "2018-06-24 14:20:57.779718"], ["description", "I love maths\r\n"], ["created_at", "2018-06-24 14:20:58.139218"], ["updated_at", "2018-06-24 14:20:58.139218"]]
+  [1m[36m (53.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/37
+Completed 302 Found in 426ms (ActiveRecord: 53.9ms)
+
+
+Started GET "/posts/37" for 127.0.0.1 at 2018-06-24 19:50:58 +0530
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"37"}
+  [1m[35mPost Load (0.9ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 37]]
+  Rendered posts/show.html.erb within layouts/application (4.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 125ms (Views: 96.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-24 19:53:29 +0530
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 72ms (Views: 71.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-07 22:05:10 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 11142ms (Views: 11124.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.self-34212a4a3519513462c4a5dbeb80b80a688ee1095749364846c04ac4668b0f23.css?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/turbolinks.self-2db6ec539b9190f75e1d477b305df53d12904d5cafdd47c7ffd91ba25cbec128.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2018-08-07 22:05:21 +0530
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-08-07 22:05:29 +0530
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:38:in `call_app'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `block in call'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `block in tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:26:in `tagged'
+  /usr/lib/ruby/vendor_ruby/active_support/tagged_logging.rb:68:in `tagged'
+  /usr/lib/ruby/vendor_ruby/rails/rack/logger.rb:20:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.10) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.10) lib/rack/runtime.rb:18:in `call'
+  /usr/lib/ruby/vendor_ruby/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.10) lib/rack/sendfile.rb:113:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/engine.rb:518:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/application.rb:165:in `call'
+  rack (1.6.10) lib/rack/lock.rb:17:in `call'
+  rack (1.6.10) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.10) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_route.html.erb (4.3ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/routes/_table.html.erb (26.2ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.7ms)
+  Rendered /usr/lib/ruby/vendor_ruby/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (483.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (192.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (275.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-08-07 22:07:05 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "posts"
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (64.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_navigation.html.haml (6.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/pjax.html.haml (3.3ms)
+Completed 200 OK in 916ms (Views: 596.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.iframe-transport.self-85655bec3dd50c2171afb2dab28ae57ef7821a2acd631498ebe4cbeb15c5d9d9.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery.remotipart.self-1b90ddc34ebd75d3e598f3c46bfd3a0a8275ef41d25b898c806b16634b0a7efa.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/version.self-c8e3d1203da26ea7efdf83c1eabb3f0ba55cb68e463f5ccf0d77bd15ce6a8e61.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/ie.self-163eb039dcb1e0c3471b7d91386eabb8753da6906e84824c019f9ff56bdb83a6.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/effect.self-776455da1682afff3a4974146aa96ca840597b879ed3797af0604063527443c6.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/widgets/mouse.self-f0790a202dcf54fab051e71b042335d5346f9cceb0f645223c1dab93f349a04b.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/widget.self-fca20bcec06d192f97cffa6e734e24360e227237b8ae7d7e7e60754df7d5444f.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/jquery-ui/data.self-2067c82e6fe39a9cba5623206a5dc28d5c60d26b95cd100855b78cacf72865b8.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:06 +0530
+
+
+Started GET "/assets/rails_admin/rails_admin.self-f84c0be3d9cc2e849e17169b5118e3622737e26468824d430881d4beffaedb03.css?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/scroll-parent.self-38e26a71a450a29fb63425e8f589a7046862f927eb0a1dbf6a6c44da05196d2e.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/widgets/sortable.self-6e5e1f07a29b5a89ec1d359363d2800904e3ae548a38ab2f8eded36746d1adbe.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/keycode.self-ad63cd20acf49dd333bbbc537454d7d475bd610eb5b88de0dca009f0c3d314b1.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/position.self-1b49c8c521e67a4a88bfdad6b4d944d33686d25009a0e40a1e170acdd7b6962a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/safe-active-element.self-a1f1a1a7dae3269ce03f6fffb2dcc9b4a7490f5d546c65d54417bec3be24b668.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/unique-id.self-66e85ac85cd0b6b8b1bb89369fc65f608f716869dc0930862a8d421a57a9580a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/widgets/menu.self-0730fe713007bd93e6db569352a20ed92448299505ff6f525bc0dc6dd488254e.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery-ui/widgets/autocomplete.self-6a89d7a43741ec810ef95de143a7c0297e2e4368ebecff64493ebb7a9ac3a524.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/jquery-ui.self-3f8fa3a4eff6d32dd25b59d951c902a2563296f5b25175358b0b5f338bed3965.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/moment-with-locales.self-c29e385ac561ac8d380cf9a68428251c3dd6b6f0f05f6114c6ae7e8114678db8.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/jquery.colorpicker.self-65a540a6a8e61569a39a37bd1456543ae5e5bbe48868247372bed40a1dff2bcf.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.filter-box.self-c07506bf70bc377afbfafd7208386be8a8790cc32ea6a65331b4cf4ff4e01fbe.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.filtering-multiselect.self-4a61ba02ba612d999ddad10d3b04875e472222ca4c35055010ac3dc6b197ff61.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.filtering-select.self-417b328d7414c32ffd8dd67544e6c07b8791e2d062d7e3f6241767a1f1f04afe.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.remote-form.self-6ee31242b35c47eae247621696152697683860be737fcb9fc7705305736c9370.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/jquery.pjax.self-aa02343d5b755c77fd76db8b2d2864cf2aebdba056b56e74b3b91f2e65207444.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/jquery_nested_form.self-d38045d10ebdd28aac44152cb451796232091957b86b47bedad1ab171a3a12cd.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.nested-form-hooks.self-53f400a47e3ece2d820f34e4a9834b229c191801c55619003453eb45c864db04.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.i18n.self-c64717c7bc1f87b9ab7325e689a1fb062e1c354770b5454212f0a27f23b083b2.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-typeahead.self-2621ced336904d375bef144d46edd9d304889e09c6559d64df325bbd10f4ce8a.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ra.widgets.self-f4d6f77845aa8cc3cde219f2e15ae24eca39c382441c9bfb515974e946b52465.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/ui.self-5f1671365225e7918e5bf4cb99fc38b189e81884fb859682f79a683f41ee19b7.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/custom/ui.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/rails_admin/rails_admin.self-49845c4836a1476d214788cff889c08d33fa1db30f8989214d2d7f81ef885e67.js?body=1" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2018-08-07 22:07:07 +0530
+
+
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:07:12 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY posts.id desc LIMIT 20 OFFSET 0
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (88.8ms)
+Completed 200 OK in 106ms (Views: 93.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:07:14 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY users.id desc LIMIT 20 OFFSET 0[0m
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (35.5ms)
+Completed 200 OK in 52ms (Views: 43.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:07:16 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[35mPost Load (0.7ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY posts.id desc LIMIT 20 OFFSET 0
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (36.0ms)
+Completed 200 OK in 49ms (Views: 40.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/post" for 127.0.0.1 at 2018-08-07 22:08:05 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"post"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY posts.id desc LIMIT 20 OFFSET 0[0m
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (27.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_navigation.html.haml (1.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/layouts/rails_admin/pjax.html.haml (6.9ms)
+Completed 200 OK in 119ms (Views: 113.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/post/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:16 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_form_text.html.haml (4.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_form_file_upload.html.haml (16.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_submit_buttons.html.haml (10.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (65.4ms)
+Completed 200 OK in 77ms (Views: 71.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/post/export?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:20 +0530
+Processing by RailsAdmin::MainController#export as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[35m (0.1ms)[0m  SELECT '' AS str;
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/export.html.haml within layouts/rails_admin/pjax (26.7ms)
+Completed 200 OK in 46ms (Views: 40.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin/post/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:27 +0530
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_form_text.html.haml (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_form_file_upload.html.haml (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/_submit_buttons.html.haml (1.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (10.7ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:28 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY posts.id desc LIMIT 20 OFFSET 0[0m
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (38.1ms)
+Completed 200 OK in 54ms (Views: 44.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/post?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:28 +0530
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"post"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY posts.id desc LIMIT 20 OFFSET 0
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (60.9ms)
+Completed 200 OK in 93ms (Views: 71.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-08-07 22:10:31 +0530
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "posts"[0m
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  Rendered /var/lib/gems/2.5.0/gems/rails_admin-1.4.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (20.4ms)
+Completed 200 OK in 47ms (Views: 28.1ms | ActiveRecord: 1.2ms)
